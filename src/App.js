@@ -4,7 +4,10 @@ import Contact from "./routingSample/Contact";
 import Home from "./routingSample/Home";
 import SupplierDetail from "./routingSample/SupplierDetail";
 import SupplierPage from "./routingSample/SupplierPage";
-
+import Navbar from "./architect-template/Navbar";
+import Header from "./architect-template/Header";
+import PageContent from "./architect-template/PageContent";
+import Footer from "./architect-template/Footer";
 
 function App() {
 
@@ -28,7 +31,6 @@ function App() {
         <Route path='/suppliers' element={<SupplierPage/>}></Route>
         <Route path='/suppliers/detail/:id' element={<SupplierDetail/>}></Route>
       </Routes>
-
     </>
 
   );
