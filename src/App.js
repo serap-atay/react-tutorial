@@ -1,54 +1,66 @@
-import { Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
+import { Layout, Menu } from 'antd';
+import 'antd/dist/antd.css';
+import HomeView from "./projectSample/Views/HomeView";
+import ProductListView from "./projectSample/Views/ProductListView";
+import AddProductView from "./projectSample/Views/AddProductView";
 
-import About from "./routingSample/About";
-import Contact from "./routingSample/Contact";
-import Home from "./routingSample/Home";
-import SupplierDetail from "./routingSample/SupplierDetail";
-import SupplierPage from "./routingSample/SupplierPage";
-import Navbar from "./architect-template/Navbar";
-import Header from "./architect-template/Header";
-import PageContent from "./architect-template/PageContent";
-import Footer from "./architect-template/Footer";
-import ProductList2 from "./antDesignSample/ProductList2";
+
 
 function App() {
 
-  const group = {
-    name: 'Moonspel',
-    year: 1992,
-    detail: {
-      albumCount: 5
-    }
-  }
+  const { Header, Content, Footer } = Layout;
 
 
+  // const group = {
+  //   name: 'Moonspel',
+  //   year: 1992,
+  //   detail: {
+  //     albumCount: 5
+  //   }
+  // }
+
+  // const linkStyle = {
+  //   textDecoration: 'none'
+  // }
 
 
   return (
     <>
-    <ProductList2></ProductList2>
-      {/* <CartProvider> */}
-       {/* <CartHeader></CartHeader> */}
-        {/* <div>
-      <nav style={{display:'flex', justifyContent:'space-around'}}>
-        <Link to="/" style={linkStyle}>Home</Link>
-        <Link to="/about" style={linkStyle}>About</Link>
-        <Link to="/contact" style={linkStyle}>Contact</Link>
-        <Link to="/suppliers" style={linkStyle}>Suppliers</Link>
-      </nav>
-    </div>
-      <Routes>
-        <Route path='/' element={<Home/>}></Route>
-        <Route path='/about' element={<AboutPage/>}></Route>
-        <Route path='/contact' element={<ContactPage/>}></Route>
-        <Route path='/suppliers' element={<SupplierPage/>}></Route>
-        <Route path='/suppliers/detail/:id' element={<SupplierDetail/>}></Route>
-      </Routes> */}
-        {/* <ProductList></ProductList> */}
+
+      {/* <ParentPropSample></ParentPropSample> */}
+      {/* <ParentSayacSample></ParentSayacSample> */}
+      <Layout>
+        <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+          <div className="logo" />
+          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
+            <Menu.Item key="1"> <Link to='/products'>Products</Link></Menu.Item>
+            <Menu.Item key="2"> <Link to='/addproduct'>Add Product</Link></Menu.Item>
+          </Menu>
+        </Header>
+        <Content className="site-layout" style={{ padding: '0 50px', marginTop: 64 }}>
+
+          <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
+          
+            <Routes>
+              <Route path='/' element={<HomeView />}></Route>
+              <Route path='/products' element={<ProductListView />}></Route>
+              <Route path='/addproduct' element={<AddProductView />}></Route>
+
+
+            </Routes>
+
+          </div>
+        </Content>
+        <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+      </Layout>
+ 
+
+
+      {/* <ProductList></ProductList> */}
 
       {/* </CartProvider> */}
     </>
-    
 
   );
 }
